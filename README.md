@@ -6383,6 +6383,7 @@ Get-LocalUser
 Get-LocalGroup
 Get-LocalGroupMember <GROUP>
 Get-Process
+Get-Process -Name <SERVICE> -FileVersionInfo
 tree /f C:\Users\
 tasklist /SVC
 sc query
