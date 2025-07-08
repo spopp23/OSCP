@@ -6457,7 +6457,10 @@ powershell ls -force    // show all hidden files
 ##### Show installed Applications
 
 ```cmd
+# 32 bit
 Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+# 64 bit
+Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
 ```
 
 ##### User Handling
