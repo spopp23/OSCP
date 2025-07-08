@@ -653,6 +653,12 @@ ftp -A <RHOST>
 wget -r ftp://anonymous:anonymous@<RHOST>
 ```
 
+When transferring binaries (like executables or images) enable the `binary` mode
+```shell
+ftp> bin
+ftp> put <FILE>
+```
+
 #### Kerberos
 
 ```shell
