@@ -6509,6 +6509,11 @@ Get-History
 type C:\Users\%username%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
+###### Retrieve events recorded by Script Block Logging
+
+Open `Event Viewer` application and create a filter for Event ID `4104` (events recorded by Script Block Logging).
+Look for credentials in these events.
+
 ###### Saved Windows Credentials
 
 ```cmd
