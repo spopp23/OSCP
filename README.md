@@ -6514,6 +6514,10 @@ type C:\Users\%username%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine
 Open `Event Viewer` application and create a filter for Event ID `4104` (events recorded by Script Block Logging).
 Look for credentials in these events.
 
+###### winPEAS for automated windows enumeration
+
+After `peass` package is installed, the winPEAS tool is located in `/usr/share/peass/winpeas/winPEASx64.exe`. Copy it to the target machine and run it.
+
 ###### Saved Windows Credentials
 
 ```cmd
