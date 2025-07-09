@@ -6390,6 +6390,7 @@ sc query
 sc qc <SERVICE>
 netsh firewall show state
 schtasks /query /fo LIST /v
+Get-CimInstance -Class win32_quickfixengineering | Where-Object { $_.Description -eq "Security Update" }
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
 ```
