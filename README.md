@@ -886,6 +886,12 @@ ping -n 1 <RHOST>
 ./chisel client 192.168.50.10:9002 R:socks
 ```
 
+Connecting via ssh using chisel
+```shell
+ss -ntplu | grep chisel # --> port (usually 1080)
+ssh -o ProxyCommand='ncat --proxy-type socks5 --proxy 127.0.0.1:1080 %h %p' <USER>@<TARGET>
+```
+
 ##### Ligolo-ng
 
 > https://github.com/nicocha30/ligolo-ng
