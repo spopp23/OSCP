@@ -4288,6 +4288,9 @@ crackmapexec smb <RHOST> -u users.txt -p '<PASSWORD>' -d <DOMAIN> --continue-on-
 # test password for user using smb
 crackmapexec smb <RHOST> -u <USER> -p '<PASSWORD>' -d <DOMAIN>
 # if (Pwn3d!) is shown next to a user, it means that the user has administrative privileges
+
+# Check mutlple server to figure out if user has administrative privileges on any server
+crackmapexec smb <RHOST1> [<RHOST2> ...] -u <USER> -p '<PASSWORD>' -d <DOMAIN> --continue-on-success
 ```
 
 ### Exploitation Tools
