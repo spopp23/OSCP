@@ -6551,6 +6551,8 @@ dir /s *pass* == *cred* == *vnc* == *.config*
 Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
 Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
 Get-ChildItem -Path C:\Users\<USERNAME>\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx,*.vbs -File -Recurse -ErrorAction SilentlyContinue
+# -Force looks in hidden folders
+Get-ChildItem -Path "C:\Users\Administrator" -Include *.settings -File  -Recurse -Force -ErrorAction SilentlyContinue 
 ```
 
 ###### PowerShell History
