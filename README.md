@@ -6444,6 +6444,8 @@ schtasks /query /fo LIST /v
 Get-CimInstance -Class win32_quickfixengineering | Where-Object { $_.Description -eq "Security Update" }
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+# Alternative to list services
+reg query HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\
 ```
 
 ##### Access Control
